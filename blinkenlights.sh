@@ -2,10 +2,11 @@
 let n=0
 while :
 do
-	n=$RANDOM
-	gpio write 0 0
-        gpio write 3 0
-        gpio write 2 0
+	n=$RANDOM%16
+	for j in {0..3}
+        do
+        gpio write $j 0
+        done
 	./setbits.sh $n
 	sleep 0.25	
 done
